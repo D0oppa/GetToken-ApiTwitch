@@ -15,7 +15,7 @@ async function getTwitchAccessToken() {
   try {
     const response = await axios.post(
       `https://id.twitch.tv/oauth2/token`,
-      null, // No data in the body for this request
+      null,
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -27,8 +27,8 @@ async function getTwitchAccessToken() {
         },
       }
     );
-    accessToken = response.data;
-    console.log(accessToken);
+    accessToken = response.data.access_token;
+
   } catch (error) {
     console.error("Error getting Twitch access token:", error);
   }
